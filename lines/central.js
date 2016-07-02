@@ -1,4 +1,4 @@
-var Line = require('line.js');
+var Line = require('../lib/line.js');
 var util = require('util');
 
 function CentralLine() {
