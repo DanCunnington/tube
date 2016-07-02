@@ -15,6 +15,9 @@ var cfenv = require('cfenv');
 // create a new express server
 var app = express();
 
+var path = require('path');
+var fs = require('fs');
+
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
 
@@ -31,12 +34,21 @@ files.forEach(function (fileName) {
 app.get('/lines', function(req,res,next) {
 
     var polylines = [];
-    for (var i=0; i<tubeLines.length; i++) {
-        polylines.push({tubeLines[i].name, tubeLines[i].createPolylines();})
+    var LENGTH = tubeLines.length;
+    var returned = 0;
+    for (var i=0; i<LENGTH; i++) {
+        tubeLines[i].createPolylines(function(line) {
+            returned++;
+            polylines.push({name: tubeLines[i].name, line: line});
+            checkToReturn();
+        }); 
     }
-
-    res.json(polylines);
-   
+    
+    function checkToReturn() {
+        if (returned == LENGTH) {
+            res.json(polylines);
+        }
+    }
 });
 
 // get the app environment from Cloud Foundry

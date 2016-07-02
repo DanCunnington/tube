@@ -8,8 +8,10 @@
   "dependencies": {
     "cfenv": "1.0.x",
     "express": "4.13.x",
-    "socket.io": "^1.4.6",
-    "jsdom": "~0.8.4"
+    "fs": "0.0.2",
+    "jsdom": "~0.8.4",
+    "path": "^0.12.7",
+    "socket.io": "^1.4.6"
   },
   "repository": {},
   "engines": {
