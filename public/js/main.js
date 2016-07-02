@@ -7,14 +7,14 @@ $(document).ready(function() {
 
   L.tileLayer('https://api2.ordnancesurvey.co.uk/mapping_api/v1/service/zxy/EPSG%3A3857/Night 3857/{z}/{x}/{y}.png?key=sdJSoCa7r8w2rW5LNUsB9vZCjEP0zTEP').addTo(map);
 
-  coords = [];
+  // coords = [];
 
-  map.on('click', function(e) {
-    var lat = e.latlng.lat;
-    var lng = e.latlng.lng;
-    console.log(lat,lng);
-    coords.push([lat,lng]);
-  });
+  // map.on('click', function(e) {
+  //   var lat = e.latlng.lat;
+  //   var lng = e.latlng.lng;
+  //   console.log(lat,lng);
+  //   coords.push([lat,lng]);
+  // });
 
 
   $.get('/lines', function(result) {
